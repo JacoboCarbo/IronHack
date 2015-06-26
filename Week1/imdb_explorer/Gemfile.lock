@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    artii (2.0.2)
+    imdb (0.8.2)
+      nokogiri (= 1.6.2.1)
+    mini_portile (0.6.0)
+    nokogiri (1.6.2.1)
+      mini_portile (= 0.6.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  artii (= 2.0.2)
+  imdb
+
+BUNDLED WITH
+   1.10.3

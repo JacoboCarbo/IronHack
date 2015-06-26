@@ -1,0 +1,43 @@
+header{
+	height: 100px;
+	width: 100%;
+	background-color: rgba(27, 154, 219, 0.77);
+}
+
+footer{
+	height: 100px;
+	width: 100%;
+	background-color: rgba(169, 35, 35, 0.81);
+}
+
+article{
+	height: 1000px;
+	width: 1000px;
+
+}
+
+.s1{
+	float: left;
+	height: 600px;
+	width: 440px;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.43);
+}
+
+.s2{
+	float: right;
+	height: 600px;
+	width: 440px;
+	text-align: center;
+	background-color: rgba(0, 128, 0, 0.52);
+}
+
+.s3{
+	float: bottom;
+	height: 300px;
+	width: 940px;
+	background-color: rgba(0, 0, 255, 0.43);
+	text-align: center;
+}
+
+section.s2 {}

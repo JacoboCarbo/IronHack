@@ -1,0 +1,66 @@
+#finalParagraph{
+				background-color: yellow;
+  				font-family: "Times New Roman";
+}
+
+.niceParagraph {
+  background-color: orange;
+  font-family: "Baskerville";
+}
+
+.articleContainer{
+	background-color:grey;
+}
+
+.title{
+	font-size: 30px;
+}
+
+.postAuthor{
+	font-size: 15px;
+	font-family: Verdana;
+}
+
+.mybox{
+	background-color:white;
+	padding: 20px 20px;
+	margin: auto;
+	content: 10px;
+}
+
+.floatedBox{
+	background-color:white;
+	padding: 20px 20px;
+	margin: auto;
+	content: 10px;
+	float:left;
+}
+
+header:hover{
+	background-color: black;
+}
+
+h1{
+	font-size: 40px;
+}
+
+body{
+	background-color: grey;
+  	font-family: "Baskerville";
+}
+
+footer{
+	font-size:25px;
+}
+
+footer a:link {
+  color: #FFFFFF;
+}
+
+footer a:visited {
+` color: #CCCCCC;
+}
+
+footer a:hover {
+  color: #999999;
+}

@@ -1,0 +1,8 @@
+source "https://rubygems.org"
+
+
+
+gem 'imdb'
+
+gem 'artii', '2.1.1' # We can specify the version of the gem we want.
+					 # We can do '~> 4.1.0', it will find any version where the last digit is greater

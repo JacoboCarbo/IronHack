@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head> <h1> Evernote 2.0 </h1> </head>
+
+	<body>
+		<% if @username %>
+			<h1>Welcome <%= @username %> </h1>
+
+			<div align="left">
+			<h3>Create a Task</h3>
+			<form action="/students/add", method="post">
+				<div> Name: <input type="text" name="name"> </div>
+				<div> Date: <input type="text" name="date"> </div>
+				<div> Done: <input type="checkbox" name="done"> </div>
+				<input type="submit" name="Create">
+			</form>
+			</div>
+
+			<%unless Task.count == 0%>
+
+			<div align="left">
+				<h3>Task List</h2>
+				<ol>
+					<% Task.all.each do |student| %>
+					<li>
+						<ul>
+							<h3> <%= student.complete_name%> </h3>
+							<li> <b> Date of birth: </b> <%= student.birthday %> </li>
+							<li> <b> URL: </b> <a href="<%student.website%>"><%= student.website%></a> </li>
+							<li> <b> Number of dogs: </b> <%=student.number_of_dogs%> </li>
+							<li> <b> First programming experience: </b> <%=student.first_programming_experience%> </li>
+							<% if student.number_of_dogs<=0%>
+								<form action="/students/<%=student.id%>" method="post">
+									<input type="submit" name="delete" value="Delete">
+								</form>
+							<% end %>
+						</ul>
+					</li>
+					<% end %>
+				</ol>
+			</div>
+			<% end %>
+		<% else %>
+			<h1>Hello mr. Nobody</h1>
+
+			<form action="/signup" method="POST">
+				<input type="text" name="username">
+				<input type="submit" value="Sign up">
+			</form>
+
+			<h3>Sign up to see your tasks.</h3>
+		<% end %>
+
+	</body>
+
+</html>
