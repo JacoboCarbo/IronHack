@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html style="background-color:lightgrey">
+	<head>
+		
+	</head>
+
+	<body>
+		<center>
+			<a href="/">Back</a>
+			<% if !(Shout.all.empty?) %>
+				<h2>Best Shouts</h2>
+				<ol>
+					<%User.rank_all.each do |user, likes| %> 
+							<div style="border:2px solid grey; background-color: orange;">
+								<li>
+								<p>
+									<a href="/user/:id"><%= "#{user.name}"%></a> <% "#{likes}" %>
+								</p>
+								</li>
+							</div>
+					<% end %>	
+				</ol>
+				<br>
+			<%else%>
+				<h2>No shouts at the moment...</h2>
+			<% end %>
+		</center>
+	</body>
+
+</html>

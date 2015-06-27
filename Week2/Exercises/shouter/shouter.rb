@@ -10,8 +10,20 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :handle, presence: true, uniqueness: true
   validates :password, presence: true
-  # add validation for the password. It should be 8 characters long and unique
   has_many :shouts
+
+  def self.rank_all
+  	user_rank = {}
+  	User.all.each do |user|
+  		total_likes = 0
+  		user.shouts.each do |shout|
+  			total_likes += shout.likes
+  		end
+  		user_rank[user] = total_likes
+  	end
+  	sorted_user_rank=user_rank.sort_by {|key, value| value}.to_h
+  	return sorted_user_rank
+  end
 end
 
 class Shout < ActiveRecord::Base

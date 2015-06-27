@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="background-color:lightgrey">
 
 	<head>
 		<title>Home</title>
@@ -7,7 +7,9 @@
 
 	<body>
 		<% if @current_user%>
-			<h2>Welcome <%= @current_user.name %> </h1> <h5> <a href='/logout'>Logout</a>
+		<center>
+			<h2>Welcome <%= @current_user.name %> </h1> <h5> 
+			<a href='/logout'>Logout</a>
 			
 			<h4> Post a Shout! </h4>
 			<form action="/create_shout" method="POST">
@@ -17,10 +19,12 @@
 
 			<% if !(Shout.all.empty?) %>
 				<h2>Shout List</h2>
+				<a href="/best/shouts">Best shouts</a>
+				<a href="/best/users">Best users</a>
 				<% Shout.all.sort_by {|shout|shout.created_at}.reverse.each do |shout| %>
-					<div style="border:2px solid grey;">
+					<div style="border:2px solid grey; background-color: orange;">
 						<p> <%= shout.message %> </p>
-						<p> By <%= "@#{shout.user.handle}"%></p>
+						<p> By 	<a href="/user/<%=shout.user_id%>"><%=shout.user.handle%></a> </p>
 
 						<form action="/like_shout" method="POST">
 							<input type="hidden" name="id" value="<%= shout.id %>">
@@ -32,26 +36,27 @@
 					<br>
 				<% end %>
 			<% end %>
-
+		</center>
 		<% else %>
-		<h3>Sign Up</h3>
-		<form action="/signup" method="POST">
-			Name: <input type="text" name="name"><br>
-			Handle:<input type="text" name="handle"><br>
-			Password:<input type="password" name="password"><br>
-			<input type="submit" value="Sign up">
-		</form>
+		<center>
+			<h3>Sign Up</h3>
+			<form action="/signup" method="POST">
+				Name: <input type="text" name="name"><br>
+				Handle:<input type="text" name="handle"><br>
+				Password:<input type="password" name="password"><br>
+				<input type="submit" value="Sign up">
+			</form>
 
-		<br>
-		<br>
+			<br>
+			<br>
 
-		<h3>Login</h3>
-		<form action="/login" method="get">
-			Handle	: <input type="text" name="handle"><br>
-			Password: <input type="text" name="password"><br>
-			<input type="submit" value="Login">
-		</form>
+			<h3>Login</h3>
+			<form action="/login" method="get">
+				Handle	: <input type="text" name="handle"><br>
+				Password: <input type="text" name="password"><br>
+				<input type="submit" value="Login">
+			</form>
+		</center>
 		<% end %>
-		
 	</body>
 </html>

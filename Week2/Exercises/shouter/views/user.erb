@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html style="background-color:lightgrey">
+	<head>
+		
+	</head>
+
+	<body>
+		<center>
+			<a href="/">Back</a>
+			<% if !(@user.shouts.empty?) %>
+				<h2><%=@user.name%>'s' Shouts</h2>
+				<a href="/best/shouts">Best shouts</a>
+				<% @user.shouts.all.sort_by {|shout|shout.created_at}.reverse.each do |shout| %>
+					<div style="border:2px solid grey; background-color: red;">
+						<p> <%= shout.message %> </p>
+						<p> By <%= "@#{shout.user.handle}"%></p>
+
+						<form action="/like_shout/<%= shout.id %>" method="POST">
+							<input type="submit" name="like" value="Like">
+						</form>
+
+						<p> Likes => <%= shout.likes%></p>
+					</div>
+					<br>
+				<% end %>
+			<%else%>
+				<h2>No shouts at the moment...</h2>
+			<% end %>
+		</center>
+	</body>
+
+</html>

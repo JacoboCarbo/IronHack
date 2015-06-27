@@ -28,6 +28,7 @@ get '/login' do
       redirect '/'
     end
   end
+  redirect '/'
 end
 
 get '/logout' do
@@ -46,6 +47,19 @@ post '/like_shout' do
   shout.likes += 1
   shout.save
   redirect '/'
+end
+
+get '/user/:id' do |id|
+  @user = User.find(id)
+  erb :user
+end
+
+get '/best/shouts' do
+  erb :best_shouts
+end
+
+get '/best/users' do
+  erb :best_users
 end
 
 
