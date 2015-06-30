@@ -1,0 +1,35 @@
+
+.btb__navbar {
+	background: white;
+}
+
+.front_image {
+	height: 320px;
+	width: 100%;
+}
+
+.main_page {
+	background: gray;
+}
+
+ .tweet {
+ 	margin: 0 2rem;
+ }
+.profile-pic {
+	height: 200px;
+	width: 200px;
+	margin-top: -150px;
+}
+
+.img-gallery {
+	font-size: 0;
+}
+
+.img-gallery>li {
+	padding:0;
+}
+
+.badge-as-label {
+	border-radius: 1em;
+}
+
