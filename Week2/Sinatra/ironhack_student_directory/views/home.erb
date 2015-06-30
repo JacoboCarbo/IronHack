@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head> <h1>Welcome to IronHack</h1> </head>
+
+	<body>
+		<div align="left">
+			<h3>Create a Student</h3>
+			<form action="/students/add", method="post">
+				<div> Name: <input type="text" name="name"></div>
+				<div> Last name: <input type="text" name="surnames"></div>
+				<div> Website URL: <input type="text" name="website"></div>
+				<div> Date of birth: <input type="date" name="birthday"></div>
+				<div> Number of dogs: <input type="text" name="number_of_dogs"></div>
+				<div> First programming experience: <input type="checkbox" name="first_programming_experience"></div>
+				<input type="submit" name="Add">
+			</form>
+		</div>
+		
+
+
+
+		<%unless Student.count == 0%>
+
+		<div align="left">
+			<h3>Student List</h2>
+			<ol>
+				<% Student.all.each do |student| %>
+				<li>
+					<ul>
+						<h3> <%= student.complete_name%> </h3>
+						<li> <b> Date of birth: </b> <%= student.birthday %> </li>
+						<li> <b> URL: </b> <a href="<%student.website%>"><%= student.website%></a> </li>
+						<li> <b> Number of dogs: </b> <%=student.number_of_dogs%> </li>
+						<li> <b> First programming experience: </b> <%=student.first_programming_experience%> </li>
+						<% if student.number_of_dogs<=0%>
+							<form action="/students/<%=student.id%>" method="post">
+								<input type="submit" name="delete" value="Delete">
+							</form>
+						<% end %>
+					</ul>
+				</li>
+				<% end %>
+			</ol>
+		</div>
+		<% end %>
+
+	</body>
+
+</html>
