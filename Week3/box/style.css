@@ -1,0 +1,17 @@
+fieldset {
+  margin: 2em;
+}
+
+div {
+  padding: .5em;  
+}
+
+label {
+  display: block;
+  margin-bottom: .4em;
+}
+
+button {
+  padding: 1em 2em;
+  margin: 1em .5em .5em;
+}

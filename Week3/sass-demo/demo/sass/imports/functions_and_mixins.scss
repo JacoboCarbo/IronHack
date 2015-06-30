@@ -1,0 +1,14 @@
+//Functions
+
+//Pixels to rem
+@function pxr($num) {
+ @return ($num / 16) + rem;
+}
+
+//Button base
+@mixin button($bdcolor: darkorange, $textcolor: white, $bdwidth: 2px) {
+	padding: 1em;
+	border: $bdwidth solid $bdcolor;
+	background: lighten($bdcolor, 30%);
+	color: $textcolor;
+}
