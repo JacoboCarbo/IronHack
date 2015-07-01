@@ -1,15 +1,9 @@
 
-.btb__navbar {
-	background: white;
-}
+
 
 .front_image {
 	height: 320px;
 	width: 100%;
-}
-
-.main_page {
-	background: gray;
 }
 
  .tweet {
@@ -27,9 +21,5 @@
 
 .img-gallery>li {
 	padding:0;
-}
-
-.badge-as-label {
-	border-radius: 1em;
 }
 
