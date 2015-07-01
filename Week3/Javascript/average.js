@@ -1,24 +1,18 @@
 'use strict';
 
-function average(numbers){
+function averageFor (number) {
+	var results = 0;
 
-	var numbers_array = numbers.split(':');
+	for (var i = 0; i < number.length; i++) {
+		results = results + parseInt(number[i]);
+	};
 
-	var number_of_alements = numbers_array.length;
+	results = results / number.length;
 
-	var numbers_integers = numbers_array.map(function(number){
-		return parseInt(number);
-	});
-
-	var sum = 0;
-	numbers_integers.forEach(function (number){
-		sum+=number;
-	});
-
-	average = sum/number_of_alements;
-	console.log(average);
+	return results;
 }
 
 var numbers = '80:90:100:70';
+var numbers_array = numbers.split(':');
 
-average(numbers);
+console.log(averageFor(numbers_array));
