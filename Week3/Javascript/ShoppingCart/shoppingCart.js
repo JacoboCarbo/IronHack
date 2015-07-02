@@ -6,19 +6,24 @@ var ShoppingCart = function (){
 
 	ShoppingCart.prototype.addItem = function (item) {
 		this.cart.push(item)
-		console.log("Adding "+item.name+ " to the cart at a price of " + item.price);
+		console.log("------------------------------------------");
+		console.log(item.name + " +1"+"\t—> ||");
 	}
 
 	ShoppingCart.prototype.removeItem = function (item, amount) {
 		var deleted = 0;
 		this.cart = this.cart.filter (function (cartItem){
 			if(cartItem.name === item && deleted<amount){
-				console.log("Deleting "+cartItem.name+ " from the cart at a price of " + cartItem.price);
 				deleted++;
 				return false;
+			}else{
+				return true;
 			}
-			return true;
 		});
+		if(deleted>0){
+		console.log("------------------------------------------");
+		console.log("\t\t   || —> -"+deleted+ " "+ item+"s");
+		}
 	}
 
 	ShoppingCart.prototype.total = function () {
@@ -34,19 +39,21 @@ var ShoppingCart = function (){
 				oranges++;
 			}
 		});
+
 		total -= this.discountApples(apples);
 		total -= this.discountOranges(oranges);
 		total -= this.discount10(total);
-		console.log("\n---------------------\n");
-		console.log("Your total is €" + total);
-		console.log("\n---------------------\n");
+		console.log("\n\n— — — — — — — — — — — — — — — — — — — — —");
+		console.log("    ||  Your total is €" + total+"  ||");	
+		console.log("— — — — — — — — — — — — — — — — — — — — —\n\n");
 	}
 
 	ShoppingCart.prototype.discount10 = function (total) {
 		if (this.cart.length > 5){
 			total *= 0.1;
-			return total;
 		}
+		return 0;
+		
 	}
 
 	ShoppingCart.prototype.discountApples = function (apples) {
