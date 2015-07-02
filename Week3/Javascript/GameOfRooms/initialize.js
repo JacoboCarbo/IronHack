@@ -3,7 +3,6 @@
 var Room = require('./room.js');
 var Player = require('./player.js');
 var Game = require('./game.js');
-var ProcessInput = require('./processInput.js');
 
 // Initialize game.
 var player = new Player();
