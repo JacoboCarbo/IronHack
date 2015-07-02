@@ -17,6 +17,10 @@ Item.prototype.setName = function (newName) {
 	this.name = newName;
 }
 
+// var total = function (array) {
+// 	array.forEach(function ())
+// }
+
 var myCart = new ShoppingCart();
 
 var apple = new Item("apple", 10);
