@@ -1,0 +1,87 @@
+Question:
+	Atrributes:
+		id,
+		question,
+		answer,
+		worth
+
+	Responsibilities:
+		Print itself
+
+User:
+	Attibutes:
+		Name,
+		Score,
+		Current question
+
+	Responsibilities:
+		Update score and current question in quiz.
+
+Quiz:
+	Attibutes:
+		/require (User)
+		MemoryManager
+		User,
+		Question array,
+
+	Responsibilities:
+		Print Leaderboard from file.
+		Start quiz:
+			Login User: Call QuizLoader
+		Ask question
+		Evaluate answer
+		Update scoreboard
+		End quiz:
+
+			(Quit OR QuizSaver to file).
+
+
+UserLoader:
+	Attibutes:
+		User
+		fileactions
+
+	Responsibilities:
+		Evaluate if user has a saved game(parseJson)
+
+UserSaver:
+	Attibutes:
+		User
+		Fileactions
+
+	Responsibilities:
+
+MemoryManager:
+	Attributes:
+		UserLoader
+		UserSaver
+
+	Responsibilities:
+		Handle load and save requests.
+
+Fileactions:
+	Attibutes:
+		File
+
+	Responsibilities:
+
+Initialize:
+	Attibutes:
+		/require (Question, User, Quiz, QuizLoader)
+
+	Responsibilities:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
