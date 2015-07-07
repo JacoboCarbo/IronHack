@@ -4,8 +4,12 @@ Rails.application.routes.draw do
 
   # delete '/contacts/:id' => 'contacts#destroy'
 
-  resources :contacts, only: [:index, :new, :show, :create, :destroy]
+  get '/contacts/search' => 'contacts#search'
+  get '/contacts/favourites' => 'contacts#favourites'
 
+  resources :contacts, only: [:index, :new, :show, :edit, :update, :create, :destroy]
+  
+  post '/contacts/:id' => 'contacts#favourite'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

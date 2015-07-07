@@ -17,6 +17,7 @@
 <%= yield %>
 	<hr/>
 	<%= link_to "All Contacts", contacts_path%>
+	<%= link_to "Favourites", contacts_favourites_path%>
 	<%= link_to "New Contact", new_contact_path, method: "get" %>
 </body>
 </html>

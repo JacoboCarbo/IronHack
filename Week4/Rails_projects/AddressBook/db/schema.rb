@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706155613) do
+ActiveRecord::Schema.define(version: 20150707122646) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -20,8 +20,19 @@ ActiveRecord::Schema.define(version: 20150706155613) do
     t.integer  "secondary_phone"
     t.string   "primary_email"
     t.string   "secondary_email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "favourite",       default: false
+  end
+
+  create_table "entries", force: :cascade do |t|
+    t.integer  "contact_id", null: false
+    t.integer  "hours"
+    t.integer  "minutes"
+    t.text     "comments"
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

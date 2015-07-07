@@ -3,6 +3,13 @@
 
 <h2> All the contacts </h2>
 
+<%= form_tag(contacts_search_path(:name), method: "get") do %>
+  <%= label_tag(:contact, "Search for:") %>
+  <%= search_field(:contact, :name) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+
 <ul>
 	<% @contacts.each do |contact| %>
 		<li>
