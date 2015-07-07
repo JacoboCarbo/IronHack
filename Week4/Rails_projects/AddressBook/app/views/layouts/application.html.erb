@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AddressBook</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<% flash.each do |key, value| %>
+		<%= content_tag :div, value, class: "flash-info" %>
+	<% end %>
+
+
+
+	<h1>Address Book</h1>
+<%= yield %>
+	<hr/>
+	<%= link_to "All Contacts", contacts_path%>
+	<%= link_to "New Contact", new_contact_path, method: "get" %>
+</body>
+</html>

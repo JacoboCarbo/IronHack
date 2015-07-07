@@ -1,0 +1,6 @@
+<!-- app/views/projects/index/html.erb -->
+
+<h2> <%=@contact.name%> </h2>
+
+	<%= @contact.to_s %>
+	<%= link_to "Destroy", contact_path(@contact), method: "delete"  %>
