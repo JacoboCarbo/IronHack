@@ -1,0 +1,15 @@
+<!-- app/views/links/index/html.erb -->
+<%= link_to "NEW URL", new_link_path, method: "get" %>
+<hr/>
+<h3> All the links </h3>
+
+<ul>
+	<% @links.each do |link| %>
+		<li>
+			<%= link_to link.short_url, exit_path(link.short_url), method: "get" %>
+
+			<%= link_to "Destroy", link_path(link.id), method: "delete"  %>
+		</li>
+	<% end %>
+</ul>
+
