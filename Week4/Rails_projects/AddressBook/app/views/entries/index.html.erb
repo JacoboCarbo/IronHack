@@ -1,0 +1,16 @@
+<h2> <%= @contact.name %> </h2>
+<h4>Total time (hh:mm): <%=@total_time%></h4>
+
+<hr/> 	
+<%= link_to "New Entry", new_contact_entry_path(@contact.id), method: "get"  %>
+<ul>
+	<% @entries.each do |entry| %>
+
+		<h5><%=entry.comments%></h5>
+		<li>Date: <%= entry.date %>	</li>
+		<li>Duration (hh:mm): <%= entry.hours %> : <%=entry.minutes %></li>
+
+		<%= link_to "Destroy", contact_entry_path(entry.contact_id, entry.id), method: "delete"  %>
+
+	<% end %>
+</ul>

@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
-  # get '/contacts' => 'contacts#index'
-  # get '/contacts/:id' => 'contacts#show'
-
-  # delete '/contacts/:id' => 'contacts#destroy'
 
   get '/contacts/search' => 'contacts#search'
   get '/contacts/favourites' => 'contacts#favourites'
 
-  resources :contacts, only: [:index, :new, :show, :edit, :update, :create, :destroy]
+  resources :contacts, only: [:index, :new, :show, :edit, :update, :create, :destroy] do
+    resources :entries, only: [:index, :new, :create, :destroy]
+  end
   
   post '/contacts/:id' => 'contacts#favourite'
 

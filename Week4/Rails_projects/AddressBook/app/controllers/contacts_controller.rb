@@ -29,7 +29,7 @@ class ContactsController < ApplicationController
 		@contact = Contact.find(params[:id])
 
 		if @contact.update_attributes(contact_params)
-			redirect_to contact_path(@contact), notice: "Project was succesfully updated."
+			redirect_to contact_path(@contact), notice: "Contact was succesfully updated."
 		else
 			render :edit
 		end
@@ -38,7 +38,7 @@ class ContactsController < ApplicationController
 	def create
 		@contact = Contact.new(contact_params)
 		if @contact.save
-			redirect_to contact_path(@contact), notice: "Project was succesfully created."
+			redirect_to contact_path(@contact), notice: "Contact was succesfully created."
 		else
 			render :new
 		end

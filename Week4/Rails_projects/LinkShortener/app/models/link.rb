@@ -14,4 +14,6 @@ class Link < ActiveRecord::Base
 	def retrieve_url
 		"http://#{url}"
 	end
+
+
 end

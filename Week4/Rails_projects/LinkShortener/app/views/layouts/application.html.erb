@@ -7,8 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1> URL SHORTENER </h1>
-<%= yield %>
-
+	<h1> URL SHORTENER </h1>
+	<%= yield %>
+	<hr/>
+	<%= link_to "All links", links_path, method: "get" %>
+	<%= link_to "Top 10", links_top10_path, method: "get" %>
 </body>
 </html>

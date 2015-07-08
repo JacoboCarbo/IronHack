@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :links, only: [:index, :new, :create, :destroy]
+  get '/links/top10' => 'links#top10'
   get '/:short_url' => 'links#redirect', as: 'exit'
 
 end

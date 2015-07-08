@@ -1,0 +1,18 @@
+
+<h2>Create a new entry</h2>
+
+<%= form_for([@contact, @entry]) do |f| %>
+
+	<%= render 'layouts/errors', model: @entry %>
+
+	<%= f.label :hours %>
+	<%=f.text_field :hours %>
+
+	<%= f.label :minutes %>
+	<%= f.text_field :minutes %>
+
+	<%= f.label :comments %>
+	<%= f.telephone_field :comments %>
+
+	<%= f.submit "Submit" %>
+<% end %>
