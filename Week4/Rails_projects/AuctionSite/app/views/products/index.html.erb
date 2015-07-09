@@ -1,0 +1,19 @@
+<!-- app/views/products/index/html.erb -->
+
+
+<h2> All the products </h2>
+<%= form_tag(products_search_path(:name), method: "get") do %>
+  <%= label_tag(:product, "Search for:") %>
+  <%= search_field(:product, :name) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+
+<ul>
+	<% @products.each do |product| %>
+		<li>
+			<%= image_tag product.logo.url(:thumb) %>
+			<%= link_to product.title, product_path(product.id)%>
+		</li>
+	<% end %>
+</ul>

@@ -1,0 +1,11 @@
+<%= form_for([@product, @bid])do |f| %>
+
+	<%= render 'layouts/errors', model: @product %>
+
+	<div class="field">
+		<%= f.label :amount %>
+		<%=f.number_field :amount %>
+	</div>
+
+	<%= f.submit "Submit" %>
+<% end %>

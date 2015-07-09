@@ -1,0 +1,15 @@
+<!-- app/views/projects/index/html.erb -->
+
+<h2> <%= @product.title %> </h2>
+
+	<ul>
+		<li> <p> <strong> Descrition: </strong> <%= @product.description %> </p>  </li>
+		<li> <p> <strong> Deadline: </strong> <%= @product.deadline %> </p> </li>
+		<li> <p> <strong> Highest bid: </strong> $<%= @product.highestBid %>  </p> </li>
+
+		<%= image_tag @product.logo.url(:medium) %>
+	</ul>
+
+	<%= link_to "Bid", new_product_bid_path(@product.id), method: "get"  %>
+	<%= link_to "Destroy", product_path(@product), method: "delete"  %>
+
