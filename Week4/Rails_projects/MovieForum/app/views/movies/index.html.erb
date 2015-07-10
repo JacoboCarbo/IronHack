@@ -1,0 +1,14 @@
+<!-- app/views/projects/index/html.erb -->
+
+
+<h2> All the Movies </h2>
+
+<ul>
+	<% @movies.each do |movie| %>
+		<li>
+			<p> <%= link_to movie.name, movie_path(movie.id)%> </p>
+			<%= image_tag movie.logo.url(:thumb) %>
+			<p> Year: <%= movie.year %> </p>
+		</li>
+	<% end %>
+</ul>

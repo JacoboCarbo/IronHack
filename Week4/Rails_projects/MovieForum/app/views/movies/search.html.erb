@@ -1,0 +1,8 @@
+
+<h2> Search for a movie </h2>
+
+<%= form_tag(movies_search_path(:title), method: "get") do %>
+  <%= label_tag(:contact, "Search by title:") %>
+  <%= search_field(:contact, :title) %>
+  <%= submit_tag("Search") %>
+<% end %>

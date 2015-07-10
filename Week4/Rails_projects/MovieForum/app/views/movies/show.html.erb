@@ -1,0 +1,11 @@
+<!-- app/views/projects/show/html.erb -->
+
+
+<h2> <%= @movie.title %> </h2>
+<p> Year: <%= @movie.year %> </p>
+
+<ul>
+	<li> <%= image_tag @movie.logo.url(:thumb) %> </li>
+	<li> Synopsis: <%= @movie.synopsis %> </li>
+</ul>
+
