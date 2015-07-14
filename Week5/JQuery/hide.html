@@ -1,0 +1,50 @@
+
+<html>
+<body>
+	<button id="hide">HIDE!</button>
+	<button id="unicorn">UNICORN MODE!</button>
+	<div class="container">
+		 <p class="texts">text</p>
+		 <p class="texts">text</p>
+		 <p class="texts">text</p>
+		 <p class="texts">text</p>
+		 <p class="texts">text</p>
+		 <p class="texts">text</p>
+		 <p class="texts">text</p>
+		 <p class="texts">text</p>
+		 <p class="texts">text</p>
+		 <p class="texts">text</p>
+		<img src="https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fmedia.firebox.com%2Fpic%2Fp5294_column_grid_12.jpg&f=1" alt="UNICORN">
+		<button type="submit">COOL</button>
+	</div>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<script>
+
+	$('#hide').on('click', function(event){
+		event.preventDefault()
+
+		$('div').fadeToggle('slow')
+	});
+
+	function rainbowMe(elements){
+		var colors = ['black','blue','gray','red','orange','pink','purple','green'];
+
+  		elements.each(function(i){
+  			var randColor = colors[Math.floor(Math.random() * colors.length)];
+  			var randBackground = colors[Math.floor(Math.random() * colors.length)];
+  			$(this).css({color:randColor, 'background-color':randBackground})
+		});
+	}
+
+	$('#unicorn').on('click', function(event){
+		event.preventDefault();
+		var elements = $('p');
+		setInterval(function(){
+			rainbowMe(elements)
+		}, 1000)
+	});
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<style>
+
+			div{
+				text-align: center;
+			}
+
+			.box {       
+		        background-color:#890A0A;
+		        color:white;
+		        font-weight:bold;
+		        font-size: 20px;
+		        margin: 120px auto 5px;
+		        height: 100px;        
+		        width: 250px;
+	    	}
+
+			.phrase{
+				margin: 20px, auto;
+				font-size: 30px;
+			}
+			
+	    	.din_list{
+	    		font-size: 15px;
+	    		text-align: left;
+	    		color: #890A0A;
+	    		margin: 5px auto 5px;
+	    		height: 100px;        
+		        width: 250px;
+	    	}
+
+
+		</style>
+		
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="box">
+				<p class="phrase"></p>
+				<button class="refresh_button"> Refresh phrase! </button>
+			</div>
+
+			<div>
+				<form>
+					<input type="text" name="phrase" placeholder="New Phrase">
+				</form>
+				<button class="hide_button"> Show / Hide phrases</button>
+				<ul class='din_list'>
+					
+				</ul>
+			</div>
+			
+		</div>
+	
+		
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script>
+			var phrases = [
+			'Hello world!',
+			'This is week 5!',
+			'Leprechaun',
+			'I like turtles',
+			'Patata',
+			];
+
+			$('.phrase').text(phrases[Math.floor(Math.random() * phrases.length)]);
+
+			phrases.forEach(function(phrase){
+				$('.din_list').append("<li>"+phrase+"<button class='delete_phrase'> X </button> </li>")
+			});
+
+
+			$('.refresh_button').on('click', function(event){
+				var candidates = $('.din_list').children()
+				if(candidates.length != 0){
+					$('.phrase').text(candidates[Math.floor(Math.random() * candidates.length)].innerText);
+				}
+			});
+
+			$('form').on('submit', function(event){
+				event.preventDefault()
+				$('.phrase').text($('input').val())
+			});
+
+			$('.hide_button').on('click', function(event){
+				$('.din_list').slideToggle()
+			});
+
+			$('.delete_phrase').on('click', function(event){
+				$(this).parent().remove();
+			});
+			
+		</script>
+
+	</body>
+</html>

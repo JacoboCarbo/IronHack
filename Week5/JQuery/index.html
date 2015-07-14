@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery exercise</title>
+  <style>
+    body {
+      font-family: Helvetica, sans-serif;
+    }
+    input {
+      height: 20px;
+      padding: 5px;
+      font-size: 16px;
+    }
+    button {
+      height: 32px;
+      font-size: 16px;
+    }
+    .colours {
+      margin: 20px 0;
+    }
+    .biz-card {
+      margin: 30px 5px;
+      height: 300px;
+      width: 500px;
+      border: 1px solid gray;
+      position: absolute;
+    }
+
+    .contact ul {
+      list-style: none;
+      position: absolute;
+      bottom: 5px;
+      width: 440px;
+      padding: 0 30px;
+    }
+    .contact li {
+      font-size: 14px;
+      display: inline;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+    }
+    .right-align {
+      float: right;
+    }
+    .heading p {
+      text-align: center;
+    }
+    #name {
+      font-size: 40px;
+    }
+    #job-title {
+      font-size: 20px;
+    }
+    .blue {
+      background-color: #21325D;
+      color: #fff;
+    }
+    .yellow {
+      background-color: #BCA720;
+      color: #620808;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Business Card Builder</h1>
+  <form>
+    <input type="text" name="name" placeholder="Name">
+    <input type="text" name="job-title" placeholder="Job title">
+    <input type="text" name="phone" placeholder="Phone">
+    <input type="text" name="email" placeholder="Email">
+    <button id="submit">Submit</button>
+    <div class="colours">
+      <button class="blue color">Blue</button>
+      <button class="yellow color">Yellow</button>
+    </div>
+  </form>
+
+  <div class="biz-card">
+    <div class="heading">
+      <p id="name">Sharon Kennedy</p>
+      <p id="job-title">Professional Trapeze Artist</p>
+    </div>
+    <div class="contact">
+      <ul>
+        <li id="phone">694 37 28 02</li>
+        <li id="email" class="right-align"><a href="#">sharon@ironhack.com</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script>
+    (function() {
+
+      function validate(elements){
+        var validity;
+        elements.forEach (function (element){
+          if(element.value === ""){
+            alert("You need to define "+ element.name);
+            validity = false;
+          }
+        });
+        return validity;
+      };
+
+      $('form').on('submit', function(event) {
+
+        event.preventDefault()
+
+        var formArray = $('form').serializeArray()
+
+        if (validate(formArray) === false){
+          return 0;
+        }
+
+        formArray.forEach (function (element){
+          $("#"+element.name).text(element.value)
+        });
+
+      });
+
+      $('.color').on('click', function(event) {
+        event.preventDefault()
+        $('.biz-card').toggleClass($(this).attr('class'))
+      });
+    })()
+  </script>
+</body>
+</html>
