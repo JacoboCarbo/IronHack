@@ -1,6 +1,8 @@
 <!-- app/views/projects/index/html.erb -->
 
-<h2> <%=@contact.name%> </h2>
+<h2> <%= @contact.name %> </h2>
+<%= image_tag @contact.logo.url(:medium) %>
+
 <% if @contact.favourite %>
 	<p>**** FAV ****</p>
 <% end %>
@@ -9,5 +11,5 @@
 
 	<%= link_to "Favourite", contact_path(@contact), method: "post"  %>
 	<%= link_to "Edit", edit_contact_path(@contact), method: "get"  %>
-	<%= link_to "Destroy", contact_path(@contact), method: "delete"  %>
+	<%= link_to "Destroy", contact_path(@contact.id), method: "delete"  %>
 

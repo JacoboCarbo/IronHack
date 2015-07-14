@@ -46,7 +46,7 @@ class ContactsController < ApplicationController
 
 	def favourite
 		@contact = Contact.find(params[:id])
-		if @contact.favourite == true
+		if @contact.favourite
 			@contact.update_attributes(favourite: false)
 		else
 			@contact.update_attributes(favourite: true)
@@ -56,7 +56,7 @@ class ContactsController < ApplicationController
 
 
 	def contact_params
-    	params.require(:contact).permit(:name, :address, :primary_phone, :secondary_phone, :primary_email, :secondary_email)
+    	params.require(:contact).permit(:name, :address, :primary_phone, :secondary_phone, :primary_email, :secondary_email, :logo)
   	end
 
  	def destroy
