@@ -1,0 +1,92 @@
+<html>
+	<head>
+		<style>
+		li {
+			background-color: #393738;
+			color: #bda521;
+			width: 300px;
+			border: black, 10px;
+			margin: 5px;
+		}
+		</style>	
+	</head>
+	<body>
+		<h1> Star Wars Characters </h1>
+		<form>
+			<input type="text" name="name" placeholder="Name">
+			<input type="text" name="occupation" placeholder="Occupation">
+			<input type="text" name="weapon" placeholder="Weapon">
+			<button id="submit" type="submit">SUBMIT</button>
+		</form>
+		<button id="fetch-characters"> Fetch Characters </button>
+		<ul id="character-list"></ul>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+		<script>
+
+		function createList(elements) {
+			var listElements = elements.map(function(element) {
+				return `<li>
+								<p>Name: ${element.name}</p>
+								<p>Occupation: ${element.occupation}</p>
+								<p>Weapon: ${element.weapon}</p>
+						</li>`;
+			}).join('\n');
+			return listElements;
+		}
+
+
+
+
+		$('form').on('submit', function(event){
+			event.preventDefault();
+
+			var newCharacter = {};
+
+			$('form').serializeArray().forEach(function(input){
+				newCharacter[input.name] = input.value;
+			});
+
+			function onSaveSuccess(param) {
+				console.log(param);
+				console.log("Character successfully saved!");
+			}
+
+			$.ajax({
+				type:'POST',
+				url: 'http://ironhack-characters.herokuapp.com/characters',
+				data: newCharacter,
+				success: onSaveSuccess,
+				error: function(param){
+					console.log(param);
+					console.log('ERROR');
+					},
+				dataType: "json"
+			});
+		});
+
+		$('#fetch-characters').on('click', function(event){
+			event.preventDefault();
+
+			function handleCharacters(characters){
+				$('#character-list').html(createList(characters));
+			}
+
+			$.ajax({
+				type:'GET',
+				url: 'http://ironhack-characters.herokuapp.com/characters',
+				data: '',
+				success: handleCharacters,
+				error: function(param){
+					console.log(param);
+					console.log('ERROR');
+					},
+				dataType: "json"
+			});
+
+		})
+
+		</script>
+	</body>
+</html>
