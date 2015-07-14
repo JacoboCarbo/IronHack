@@ -6,6 +6,11 @@ class ProductsController < ApplicationController
 
 	def create
 		@product = Product.new(product_params)
+
+		@user = User.find_by(email: params[:user_email])
+
+		@product.update_attributes(user_id: @user.id)
+
 		if @product.valid?
 			@product.save
 			redirect_to product_path(@product), notice: "Product was succesfully posted."

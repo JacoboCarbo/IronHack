@@ -1,11 +1,17 @@
-<%= form_for([@product, @bid])do |f| %>
+<%= form_tag product_bids_path(@product, @bid) do%>
 
 	<%= render 'layouts/errors', model: @product %>
 
 	<div class="field">
-		<%= f.label :amount %>
-		<%=f.number_field :amount %>
+		<%= label_tag :amount %>
+		<%= number_field_tag :amount %>
 	</div>
 
-	<%= f.submit "Submit" %>
+	<div class="field">
+		<%= label_tag :user_email %>
+		<%= text_field_tag :user_email %>
+	</div>
+
+<%= submit_tag "Submit" %>
+
 <% end %>
